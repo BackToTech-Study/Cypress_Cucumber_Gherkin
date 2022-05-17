@@ -4,7 +4,6 @@ import loginPage from '../Pages/loginPage';
 
 
 Given ("The user navigate to the website",()=>{ 
-    // loginPage.doLogin();
     loginPage.navigateToURL();
     loginPage.waitLandingPage();
 });
@@ -20,9 +19,9 @@ And("Validate the page title",()=>{
             .contains('Contul tau');
 });
 
-And("The user enter account details",()=>{
+And("The user enter valid account details",()=>{
     cy.get('#_loginEmail').type('c_oniga@yahoo.com');
-    cy.get('#_loginPassword').type('1234Casian');
+    cy.get('#_loginPassword').type('i0eod4');
     cy.wait(2000);
 });
 
@@ -33,6 +32,16 @@ And("The user click on Intra in cont Button to login",()=>{
 
 Then("Validate the page url",()=>{
     cy.url('/').should('include', '/contul-meu')
+})
+
+And ("The user enter wrong account details",()=>{
+    cy.get('#_loginEmail').type('Coniga@yahoo.com');
+    cy.get('#_loginPassword').type('mere');
+    cy.wait(2000)
+})
+
+Then ("The error message is visible",()=>{
+    cy.get('.error').should('be.visible')
 })
 
 
