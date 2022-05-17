@@ -1,18 +1,17 @@
 import {Given, When, And, Then} from 'cypress-cucumber-preprocessor/steps';
-import {loginPage} from '../Pages/loginPage';
+import loginPage from '../Pages/loginPage';
 
 
 
 Given ("The user navigate to the website",()=>{ 
-    cy.visit('https://www.e-minu.ro/') ;
     // loginPage.doLogin();
-    // loginPage.navigateToURL();
-    // loginPage.waitLandingPage();
+    loginPage.navigateToURL();
+    loginPage.waitLandingPage();
 });
 
 When ("The user click on Intra in cont Button",()=>{
     cy.get('div.col-md-5.col-sm-5.acount-section > ul > li.-g-user-icon > a').click();
-    cy.wait(2000);
+    loginPage.waitLandingPage();
 });
 
 And("Validate the page title",()=>{
@@ -24,11 +23,12 @@ And("Validate the page title",()=>{
 And("The user enter account details",()=>{
     cy.get('#_loginEmail').type('c_oniga@yahoo.com');
     cy.get('#_loginPassword').type('1234Casian');
+    cy.wait(2000);
 });
 
 And("The user click on Intra in cont Button to login",()=>{
     cy.get('#doLogin').click({force: true});
-    cy.wait(5000);
+    loginPage.waitLandingPage();
 });
 
 Then("Validate the page url",()=>{

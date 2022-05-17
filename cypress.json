@@ -11,9 +11,6 @@
     "video": false,
     "viewportWidth": 1280,
     "viewportHeight": 800,
-    "env": {
-        "baseUrl": "https://www.e-minu.ro/",
-        "urlFragment": "/"
-    }
-
+    "baseUrl": "https://www.e-minu.ro/"
+     
 }
