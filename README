@@ -1,0 +1,53 @@
+In VSC: npm install
+In VSC : npm init
+In a command window: npm install cypress --save-dev
+Check installation by running: npx cypress open
+In VSC : Install from extensions : Cucumbert (Gherkin) Full support
+
+Installation Cucumber plugin
+Install the plugin by running:
+
+npm install --save-dev cypress-cucumber-preprocessor
+Cypress Configuration
+
+Add it to your plugins:
+
+cypress/plugins/index.js
+
+const cucumber = require('cypress-cucumber-preprocessor').default
+
+module.exports = (on, config) => {
+  on('file:preprocessor', cucumber())}
+
+Add support for feature files to your Cypress configuration:
+
+cypress.json
+
+{
+  "testFiles": "**/*.feature"
+}
+Configuration
+Package.json:
+
+"cypress-cucumber-preprocessor": {
+  "nonGlobalStepDefinitions": true
+}
+
+Cypress.json:
+//  "testFiles": [
+        "**/*.{feature,features}"
+    ],
+// "chromeWebSecurity": false,
+// "env": {
+        "baseUrl": "https://www.e-minu.ro/",
+        "urlFragment": "/"
+    }
+
+Index.js in pages:
+//import LoginPage from '../Pages/loginPage'
+
+//export {
+//LoginPage
+  //   }
+
+

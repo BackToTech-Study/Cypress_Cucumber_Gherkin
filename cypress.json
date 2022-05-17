@@ -1,0 +1,19 @@
+{
+    "testFiles": [
+        "**/*.{feature,features}"
+    ],
+    "reporter": "xunit",
+    "reporterOptions": {
+        "mochaFile": "test-output-[hash].xml",
+        "toConsole": true,
+        "attachments": true
+    },
+    "video": false,
+    "viewportWidth": 1280,
+    "viewportHeight": 800,
+    "env": {
+        "baseUrl": "https://www.e-minu.ro/",
+        "urlFragment": "/"
+    }
+
+}
